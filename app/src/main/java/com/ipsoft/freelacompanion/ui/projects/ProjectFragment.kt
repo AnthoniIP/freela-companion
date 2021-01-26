@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.fragment.app.Fragment
-import androidx.viewpager2.widget.ViewPager2
 import com.ipsoft.freelacompanion.R
 
 /**
@@ -18,7 +19,6 @@ import com.ipsoft.freelacompanion.R
 class ProjectFragment : Fragment() {
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,6 +28,18 @@ class ProjectFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        val spinner: Spinner = view.findViewById(R.id.spinner)
+
+        ArrayAdapter.createFromResource(
+            view.context,
+            R.array.status,
+            android.R.layout.simple_spinner_dropdown_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+            spinner.adapter = adapter
+        }
 
     }
 
