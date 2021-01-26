@@ -1,7 +1,5 @@
 package com.ipsoft.freelacompanion.data.model
 
-import java.util.*
-
 /**
  *
  *  Author:     Anthoni Ipiranga
@@ -10,14 +8,20 @@ import java.util.*
  */
 
 data class Project(
-    val name : String = "",
+    val name: String = "",
     val description: String = "",
-    val deadLine : Date,
-    val client : String = "",
-    val value : Double = 0.0,
-    val status : ProjectStatus
+    val deadLine: String,
+    val client: String = "",
+    val value: Double = 0.0,
+    val status: ProjectStatus,
+    val hourPerDay: Int,
+    val dayDuration: Int
 
-)
+) {
+    val valuePerHour
+        get() = value / (hourPerDay * dayDuration)
+}
+
 enum class ProjectStatus {
-    STARTED,PAUSED,FINISHED,CANCELED
+    STARTED, PAUSED, FINISHED, CANCELED
 }

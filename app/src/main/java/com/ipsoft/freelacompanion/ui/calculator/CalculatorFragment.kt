@@ -10,7 +10,7 @@ import com.ipsoft.freelacompanion.R
 
 
 
-class CalcFragment : Fragment() {
+class CalculatorFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +23,7 @@ class CalcFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calc, container, false)
+        return inflater.inflate(R.layout.fragment_calculator, container, false)
     }
 
 
