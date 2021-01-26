@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ipsoft.freelacompanion.R
 
@@ -16,7 +18,7 @@ import com.ipsoft.freelacompanion.R
  *  Date:       23/01/2021
  */
 
-class ProjectFragment : Fragment() {
+class ProjectFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
 
     override fun onCreateView(
@@ -39,6 +41,7 @@ class ProjectFragment : Fragment() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
             spinner.adapter = adapter
+            spinner.onItemSelectedListener = this
         }
 
     }
@@ -46,9 +49,18 @@ class ProjectFragment : Fragment() {
     companion object {
 
         fun newInstance(s: String): ProjectFragment = ProjectFragment().apply {
-            arguments = Bundle().apply {
-                putString("text", s)
+
             }
         }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        //Logíca que sera executada quando algum item do spinner for selecionado
+        Toast.makeText(view?.context, "Item selecionado", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        //Logica quando nenhum item do spinner estiver selecionado
+        //mostrar todos os projetos
+        Toast.makeText(view?.context, "Nenhum item selecionado", Toast.LENGTH_SHORT).show()
     }
 }
