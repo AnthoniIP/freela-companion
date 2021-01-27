@@ -17,20 +17,15 @@ import com.ipsoft.freelacompanion.R
  *  Project:    Freela Companion
  *  Date:       23/01/2021
  */
-
 class ProjectFragment : Fragment(), AdapterView.OnItemSelectedListener {
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_projects, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         val spinner: Spinner = view.findViewById(R.id.spinner)
 
         ArrayAdapter.createFromResource(
@@ -43,15 +38,12 @@ class ProjectFragment : Fragment(), AdapterView.OnItemSelectedListener {
             spinner.adapter = adapter
             spinner.onItemSelectedListener = this
         }
-
     }
 
     companion object {
-
         fun newInstance(s: String): ProjectFragment = ProjectFragment().apply {
-
-            }
         }
+    }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         //Logíca que sera executada quando algum item do spinner for selecionado
