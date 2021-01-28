@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.ui.projects
+package com.ipsoft.freelacompanion.ui.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,10 +17,11 @@ import com.ipsoft.freelacompanion.R
  *  Project:    Freela Companion
  *  Date:       23/01/2021
  */
-class ProjectFragment : Fragment(), AdapterView.OnItemSelectedListener {
+class ProjectListFragment : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_projects, container, false)
     }
@@ -41,7 +42,7 @@ class ProjectFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
     companion object {
-        fun newInstance(s: String): ProjectFragment = ProjectFragment().apply {
+        fun newInstance(s: String): ProjectListFragment = ProjectListFragment().apply {
         }
     }
 
