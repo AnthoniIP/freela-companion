@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.details
+package com.ipsoft.freelacompanion.ui.calculator
 
 /**
  *
@@ -6,5 +6,5 @@ package com.ipsoft.freelacompanion.details
  *  Project:    Freela Companion
  *  Date:       28/01/2021
  */
-interface ProjectDetailsView {
+class CalculatorPresenter {
 }

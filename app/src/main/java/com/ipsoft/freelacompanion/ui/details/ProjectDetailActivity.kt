@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.details
+package com.ipsoft.freelacompanion.ui.details
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

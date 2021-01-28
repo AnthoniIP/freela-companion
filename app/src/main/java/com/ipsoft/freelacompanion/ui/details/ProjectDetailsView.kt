@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.ui.form
+package com.ipsoft.freelacompanion.ui.details
 
 import com.ipsoft.freelacompanion.data.model.Project
 
@@ -8,10 +8,9 @@ import com.ipsoft.freelacompanion.data.model.Project
  *  Project:    Freela Companion
  *  Date:       28/01/2021
  */
-interface ProjectFormView {
+interface ProjectDetailsView {
 
-	fun showProject(project : Project)
-	fun errorInvalidProject()
-	fun errorSaveProject()
+	fun showProjectDetails(project: Project)
+	fun errorProjectNotFound()
 
 }
