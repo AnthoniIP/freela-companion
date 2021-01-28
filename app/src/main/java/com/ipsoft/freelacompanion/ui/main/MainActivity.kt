@@ -15,14 +15,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fragment: ProjectFragment
     private lateinit var addButton: FloatingActionButton
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
         addButton = findViewById(R.id.btn_add)
-
-
     }
 }

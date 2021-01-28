@@ -9,13 +9,12 @@ import com.ipsoft.freelacompanion.data.model.ProjectStatus
  *  Project:    Freela Companion
  *  Date:       26/01/2021
  */
-
 class ProjectMock {
-
     private val projectList: List<Project> = listOf(
         Project(
-            "Jooj",
+            1,
             "projeto do jooj",
+            "PROJETO DO JOOJ PRA ENTREGAR NA TERCA",
             "10/12/2021",
             "Rogerinho",
             2000.0,
@@ -24,35 +23,39 @@ class ProjectMock {
             30
         ),
         Project(
-            "Jooj 2",
-            "projeto do jooj 2",
+            2,
+            "projeto do jooj",
+            "PROJETO DO JOOJ PRA ENTREGAR NA TERCA",
             "10/12/2021",
-            "Marcos",
-            400.0,
-            ProjectStatus.PAUSED,
-            6,
-            60
-        ),
-        Project(
-            "Jooj 3",
-            "projeto do jooj 3",
-            "10/12/2021",
-            "Tadeu",
-            3000.0,
-            ProjectStatus.CANCELED,
+            "Rogerinho",
+            2000.0,
+            ProjectStatus.STARTED,
             8,
             30
         ),
         Project(
-            "Jooj 4",
-            "projeto do jooj 4",
+            3,
+            "projeto do jooj",
+            "PROJETO DO JOOJ PRA ENTREGAR NA TERCA",
             "10/12/2021",
-            "Bastimeu",
-            800.0,
-            ProjectStatus.FINISHED,
-            4,
-            80
+            "Rogerinho",
+            2000.0,
+            ProjectStatus.STARTED,
+            8,
+            30
         ),
-    )
+        Project(
+            4,
+            "projeto do jooj",
+            "PROJETO DO JOOJ PRA ENTREGAR NA TERCA",
+            "10/12/2021",
+            "Rogerinho",
+            2000.0,
+            ProjectStatus.STARTED,
+            8,
+            30
+        )
 
+
+    )
 }
