@@ -2,6 +2,7 @@ package com.ipsoft.freelacompanion.ui.common
 
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.ipsoft.freelacompanion.ui.calculator.CalculatorFragment
 import com.ipsoft.freelacompanion.ui.list.ProjectListFragment
 
 /**
@@ -14,7 +15,8 @@ class FragmentSliderAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
 	override fun getItemCount() = NUM_PAGES
 
-	override fun createFragment(position: Int) = ProjectListFragment()
+	override fun createFragment(position: Int) =
+		if (position == 0) ProjectListFragment() else CalculatorFragment()
 
 	companion object {
 
