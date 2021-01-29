@@ -1,6 +1,7 @@
 package com.ipsoft.freelacompanion.repository
 
 import com.ipsoft.freelacompanion.data.model.Project
+import com.ipsoft.freelacompanion.data.model.ProjectStatus
 
 /**
  *
@@ -9,8 +10,10 @@ import com.ipsoft.freelacompanion.data.model.Project
  *  Date:       28/01/2021
  */
 interface ProjectRepository {
-    fun save(project : Project)
-    fun remove(vararg projects: Project)
-    fun projectById(id: Long, callback: (Project?) -> Unit)
-    fun search(term: String,callback: (List<Project>) -> Unit)
+
+	fun save(project: Project)
+	fun remove(vararg projects: Project)
+	fun projectById(id: Long, callback: (Project?) -> Unit)
+	fun projectsByStatus(status: ProjectStatus,callback: (List<Project>) -> Unit)
+	fun search(term: String, callback: (List<Project>) -> Unit)
 }

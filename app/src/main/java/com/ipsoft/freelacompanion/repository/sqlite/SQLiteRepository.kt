@@ -98,6 +98,28 @@ class SQLiteRepository(ctx: Context) : ProjectRepository {
 		callback(project)
 	}
 
+	override fun projectsByStatus(status: ProjectStatus, callback: (List<Project>) -> Unit) {
+
+		val projects = ArrayList<Project>()
+
+		val statusChange = when (status) {
+			ProjectStatus.STARTED -> 1
+			ProjectStatus.PAUSED -> 2
+			ProjectStatus.CANCELED -> 3
+			ProjectStatus.FINISHED -> 4
+		}
+
+		val sql = "SELECT * FROM $TABLE_PROJECT WHERE $COLUMN_STATUS = ?"
+		val db = helper.readableDatabase
+		val cursor = db.rawQuery(sql, arrayOf(statusChange.toString()))
+		while (cursor.moveToNext()) {
+			val project = projectFromCursor(cursor)
+			projects.add(project)
+
+		}
+		callback(projects)
+	}
+
 	override fun search(term: String, callback: (List<Project>) -> Unit) {
 		var sql = "SELECT * FROM $TABLE_PROJECT"
 		var args: Array<String>? = null

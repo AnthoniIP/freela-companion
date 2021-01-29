@@ -6,8 +6,8 @@
     <string name="dias_restantes">Dias restantes :</string>
 
     <string-array name="status">
+        <item>Todos</item>
         <item>Em andamento</item>
-        <item>Finalizados</item>
         <item>Concluídos</item>
         <item>Cancelados</item>
     </string-array>
