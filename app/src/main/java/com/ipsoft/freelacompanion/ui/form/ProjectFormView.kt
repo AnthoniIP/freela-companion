@@ -10,7 +10,7 @@ import com.ipsoft.freelacompanion.data.model.Project
  */
 interface ProjectFormView {
 
-	fun showProject(project : Project)
+	fun showProject(project: Project)
 	fun errorInvalidProject()
 	fun errorSaveProject()
 

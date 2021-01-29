@@ -13,9 +13,11 @@ class ProjectFormFragment : ProjectFormView {
 	override fun showProject(project: Project) {
 		TODO("Not yet implemented")
 	}
+
 	override fun errorInvalidProject() {
 		TODO("Not yet implemented")
 	}
+
 	override fun errorSaveProject() {
 		TODO("Not yet implemented")
 	}

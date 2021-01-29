@@ -18,10 +18,10 @@ data class Project(
     val dayDuration: Int
 ) {
 
-    val valuePerHour
-        get() = price / (hourPerDay * dayDuration)
+	val valuePerHour
+		get() = price / (hourPerDay * dayDuration)
 }
 
 enum class ProjectStatus {
-    STARTED, PAUSED, FINISHED, CANCELED
+	STARTED, PAUSED, FINISHED, CANCELED
 }

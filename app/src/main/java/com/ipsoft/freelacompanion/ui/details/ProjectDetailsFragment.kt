@@ -14,6 +14,7 @@ class ProjectDetailsFragment : Fragment(), ProjectDetailsView {
 	override fun showProjectDetails(project: Project) {
 		TODO("Not yet implemented")
 	}
+
 	override fun errorProjectNotFound() {
 		TODO("Not yet implemented")
 	}
