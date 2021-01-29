@@ -1,14 +1,14 @@
 package com.ipsoft.freelacompanion.ui.common
 
 import android.os.Bundle
-import androidx.fragment.app.FragmentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.ipsoft.freelacompanion.R
 
-class MainActivity : FragmentActivity(), MainView {
+class MainActivity : AppCompatActivity(), MainView {
 
 	private lateinit var viewPager: ViewPager2
 	private lateinit var addButton: FloatingActionButton
@@ -17,6 +17,7 @@ class MainActivity : FragmentActivity(), MainView {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
+
 
 		setFragments()
 		setTabLayout()
