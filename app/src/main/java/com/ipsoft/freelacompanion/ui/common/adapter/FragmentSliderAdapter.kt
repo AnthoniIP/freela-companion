@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.ui.common
+package com.ipsoft.freelacompanion.ui.common.adapter
 
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter

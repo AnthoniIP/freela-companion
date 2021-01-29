@@ -8,9 +8,13 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
-import androidx.fragment.app.ListFragment
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
 import com.ipsoft.freelacompanion.R
 import com.ipsoft.freelacompanion.data.model.Project
+import com.ipsoft.freelacompanion.ui.list.adapter.ProjectRecyclerViewAdapter
 
 /**
  *
@@ -18,9 +22,12 @@ import com.ipsoft.freelacompanion.data.model.Project
  *  Project:    Freela Companion
  *  Date:       23/01/2021
  */
-class ProjectListFragment : ListFragment(), ProjectListView, AdapterView.OnItemSelectedListener {
+class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelectedListener {
 
 	private lateinit var spinner: Spinner
+	private lateinit var recyclerView: RecyclerView
+	private lateinit var linearLayoutManager: LinearLayoutManager
+	private lateinit var rvAdapter: ProjectRecyclerViewAdapter
 
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
@@ -33,17 +40,34 @@ class ProjectListFragment : ListFragment(), ProjectListView, AdapterView.OnItemS
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		spinner = view.findViewById(R.id.spinner)
+		setSpinner(view)
+		setRecyclerView(view)
+
+	}
+
+	private fun setSpinner(v: View) {
+
+		spinner = v.findViewById(R.id.spinner)
 		spinner.onItemSelectedListener = this
 
 		ArrayAdapter.createFromResource(
-			view.context,
+			v.context,
 			R.array.status,
 			android.R.layout.simple_spinner_item
 		).also { adapter ->
 			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 			spinner.adapter = adapter
 		}
+
+	}
+
+	private fun setRecyclerView(v: View) {
+		rvAdapter = ProjectRecyclerViewAdapter()
+		linearLayoutManager = LinearLayoutManager(v.context)
+		recyclerView = v.findViewById(R.id.rv_projects)
+		recyclerView.layoutManager = linearLayoutManager
+		recyclerView.adapter = rvAdapter
+
 	}
 
 	override fun showProjects(projects: List<Project>) {
