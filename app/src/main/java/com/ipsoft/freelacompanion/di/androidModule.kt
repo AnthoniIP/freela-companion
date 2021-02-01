@@ -1,5 +1,6 @@
 package com.ipsoft.freelacompanion.di
 
+import com.google.android.material.tabs.TabLayout
 import com.ipsoft.freelacompanion.repository.ProjectRepository
 import com.ipsoft.freelacompanion.repository.sqlite.SQLiteRepository
 import com.ipsoft.freelacompanion.ui.calculator.CalculatorPresenter
@@ -12,6 +13,7 @@ import com.ipsoft.freelacompanion.ui.form.ProjectFormPresenter
 import com.ipsoft.freelacompanion.ui.form.ProjectFormView
 import com.ipsoft.freelacompanion.ui.list.ProjectListPresenter
 import com.ipsoft.freelacompanion.ui.list.ProjectListView
+import com.ipsoft.freelacompanion.ui.list.adapter.ProjectRecyclerViewAdapter
 import org.koin.dsl.module.module
 
 /**
@@ -24,6 +26,7 @@ val androidModule = module {
 	single { this }
 	single { SQLiteRepository(ctx = get()) as ProjectRepository }
 
+	//Presenters
 	factory { (view: CalculatorView) ->
 		CalculatorPresenter(view)
 	}
@@ -43,6 +46,11 @@ val androidModule = module {
 
 	factory { (view: ProjectListView) ->
 		ProjectListPresenter(view, repository = get())
+	}
+
+	//UI Components
+	factory {
+		ProjectRecyclerViewAdapter()
 	}
 
 }
