@@ -1,6 +1,12 @@
 package com.ipsoft.freelacompanion.ui.form
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.ipsoft.freelacompanion.data.model.Project
+import com.ipsoft.freelacompanion.databinding.FragmentProjectFormBinding
 
 /**
  *
@@ -8,17 +14,28 @@ import com.ipsoft.freelacompanion.data.model.Project
  *  Project:    Freela Companion
  *  Date:       28/01/2021
  */
-class ProjectFormFragment : ProjectFormView {
+class ProjectFormFragment : Fragment(), ProjectFormView {
 
-	override fun showProject(project: Project) {
-		TODO("Not yet implemented")
-	}
+    lateinit var projectFormBinding: FragmentProjectFormBinding
 
-	override fun errorInvalidProject() {
-		TODO("Not yet implemented")
-	}
+    override fun onCreateView(
+		inflater: LayoutInflater,
+		container: ViewGroup?,
+		savedInstanceState: Bundle?
+	): View? {
+        projectFormBinding = FragmentProjectFormBinding.inflate(layoutInflater)
+        return projectFormBinding.root
+    }
 
-	override fun errorSaveProject() {
-		TODO("Not yet implemented")
-	}
+    override fun showProject(project: Project) {
+        TODO("Not yet implemented")
+    }
+
+    override fun errorInvalidProject() {
+        TODO("Not yet implemented")
+    }
+
+    override fun errorSaveProject() {
+        TODO("Not yet implemented")
+    }
 }

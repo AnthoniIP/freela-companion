@@ -1,7 +1,12 @@
 package com.ipsoft.freelacompanion.ui.details
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.ipsoft.freelacompanion.data.model.Project
+import com.ipsoft.freelacompanion.databinding.ActivityProjectDetailBinding
 
 /**
  *
@@ -11,11 +16,22 @@ import com.ipsoft.freelacompanion.data.model.Project
  */
 class ProjectDetailsFragment : Fragment(), ProjectDetailsView {
 
-	override fun showProjectDetails(project: Project) {
-		TODO("Not yet implemented")
-	}
+    private lateinit var projectDetailBinding: ActivityProjectDetailBinding
 
-	override fun errorProjectNotFound() {
-		TODO("Not yet implemented")
-	}
+    override fun onCreateView(
+		inflater: LayoutInflater,
+		container: ViewGroup?,
+		savedInstanceState: Bundle?
+	): View? {
+        projectDetailBinding = ActivityProjectDetailBinding.inflate(layoutInflater)
+        return projectDetailBinding.root
+    }
+
+    override fun showProjectDetails(project: Project) {
+        TODO("Not yet implemented")
+    }
+
+    override fun errorProjectNotFound() {
+        TODO("Not yet implemented")
+    }
 }

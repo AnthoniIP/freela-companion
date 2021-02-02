@@ -24,7 +24,7 @@ import org.koin.dsl.module.module
  */
 val androidModule = module {
 	single { this }
-	single { SQLiteRepository(ctx = get()) as ProjectRepository }
+	single { SQLiteRepository(ctx = get()) }
 
 	//Presenters
 	factory { (view: CalculatorView) ->
@@ -46,11 +46,6 @@ val androidModule = module {
 
 	factory { (view: ProjectListView) ->
 		ProjectListPresenter(view, repository = get())
-	}
-
-	//UI Components
-	factory {
-		ProjectRecyclerViewAdapter()
 	}
 
 }

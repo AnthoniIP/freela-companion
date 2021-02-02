@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ipsoft.freelacompanion.R
 import com.ipsoft.freelacompanion.data.model.Project
+import com.ipsoft.freelacompanion.databinding.FragmentProjectListBinding
 import com.ipsoft.freelacompanion.ui.list.adapter.ProjectRecyclerViewAdapter
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -24,6 +25,8 @@ import org.koin.core.parameter.parametersOf
  */
 class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelectedListener,
     ActionMode.Callback {
+
+    private lateinit var projectListBinding: FragmentProjectListBinding
 
     private lateinit var spinner: Spinner
     private lateinit var recyclerView: RecyclerView
@@ -41,7 +44,7 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
     override fun showProjects(projects: List<Project>) {
         val adapter = ProjectRecyclerViewAdapter(projects)
         linearLayoutManager = LinearLayoutManager(activity)
-        recyclerView = (activity?.findViewById(R.id.rv_projects) ?: null) as RecyclerView
+        recyclerView = projectListBinding.rvProjects
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = adapter
     }
@@ -88,7 +91,8 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_project_list, container, false)
+        projectListBinding = FragmentProjectListBinding.inflate(layoutInflater)
+        return projectListBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -100,7 +104,7 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
 
     private fun setSpinner(v: View) {
 
-        spinner = v.findViewById(R.id.spinner)
+        spinner = projectListBinding.spinner
         spinner.onItemSelectedListener = this
 
         ArrayAdapter.createFromResource(

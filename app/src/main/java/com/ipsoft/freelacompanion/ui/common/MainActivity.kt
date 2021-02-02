@@ -8,6 +8,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.ipsoft.freelacompanion.R
 import com.ipsoft.freelacompanion.data.model.Project
+import com.ipsoft.freelacompanion.databinding.ActivityMainBinding
 import com.ipsoft.freelacompanion.ui.common.adapter.FragmentSliderAdapter
 import com.ipsoft.freelacompanion.ui.list.ProjectListFragment
 
@@ -16,18 +17,22 @@ class MainActivity : AppCompatActivity(),
     ProjectListFragment.OnProjectClickListener,
     ProjectListFragment.OnProjectDeletedListener {
 
+    private lateinit var mainBinding: ActivityMainBinding
+
     private lateinit var viewPager: ViewPager2
     private lateinit var addButton: FloatingActionButton
     private lateinit var tabLayout: TabLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        mainBinding = ActivityMainBinding.inflate(layoutInflater)
+        val view = mainBinding.root
+        setContentView(view)
 
         setFragments()
         setTabLayout()
 
-        addButton = findViewById(R.id.btn_add)
+        addButton = mainBinding.btnAdd
     }
 
     override fun onBackPressed() {
@@ -42,7 +47,7 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun setFragments() {
-        viewPager = findViewById(R.id.pager)
+        viewPager = mainBinding.pager
 
         val pagerAdapter = FragmentSliderAdapter(this)
         viewPager.adapter = pagerAdapter
@@ -51,7 +56,7 @@ class MainActivity : AppCompatActivity(),
     override fun setTabLayout() {
 
         val tabTitles = (resources.getStringArray(R.array.fragments))
-        tabLayout = findViewById(R.id.tab_layout)
+        tabLayout = mainBinding.tabLayout
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = tabTitles[position]
         }.attach()
