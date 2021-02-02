@@ -28,7 +28,7 @@ class ProjectFormFragment : DialogFragment(), ProjectFormView {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentProjectFormBinding.inflate(layoutInflater, container, false)
         return binding.root
 
