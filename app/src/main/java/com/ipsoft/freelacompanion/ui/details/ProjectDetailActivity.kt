@@ -2,12 +2,16 @@ package com.ipsoft.freelacompanion.ui.details
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.ipsoft.freelacompanion.R
+import com.ipsoft.freelacompanion.databinding.ActivityProjectDetailBinding
 
 class ProjectDetailActivity : AppCompatActivity() {
 
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
-		setContentView(R.layout.activity_project_detail)
-	}
+    private lateinit var projectDetailBinding: ActivityProjectDetailBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        projectDetailBinding = ActivityProjectDetailBinding.inflate(layoutInflater)
+        val view = projectDetailBinding.root
+        setContentView(view)
+    }
 }

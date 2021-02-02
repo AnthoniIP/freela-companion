@@ -14,6 +14,7 @@ import com.ipsoft.freelacompanion.R
 import com.ipsoft.freelacompanion.data.model.Project
 import com.ipsoft.freelacompanion.databinding.FragmentProjectListBinding
 import com.ipsoft.freelacompanion.ui.list.adapter.ProjectRecyclerViewAdapter
+import com.ipsoft.freelacompanion.util.CellClickListener
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
@@ -42,7 +43,7 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
     }
 
     override fun showProjects(projects: List<Project>) {
-        val adapter = ProjectRecyclerViewAdapter(projects)
+        val adapter = ProjectRecyclerViewAdapter(projects, activity as CellClickListener)
         linearLayoutManager = LinearLayoutManager(activity)
         recyclerView = projectListBinding.rvProjects
         recyclerView.layoutManager = linearLayoutManager
@@ -89,7 +90,7 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         projectListBinding = FragmentProjectListBinding.inflate(layoutInflater)
         return projectListBinding.root
@@ -166,4 +167,5 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
 
         fun onProjectClick(project: Project)
     }
+
 }

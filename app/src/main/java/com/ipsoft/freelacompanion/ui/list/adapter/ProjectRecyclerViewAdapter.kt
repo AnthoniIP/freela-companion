@@ -1,9 +1,14 @@
 package com.ipsoft.freelacompanion.ui.list.adapter
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ipsoft.freelacompanion.data.model.Project
+import com.ipsoft.freelacompanion.data.model.ProjectStatus
+import com.ipsoft.freelacompanion.databinding.ProjectItemBinding
+import com.ipsoft.freelacompanion.util.CellClickListener
 
 /**
  *
@@ -12,29 +17,64 @@ import com.ipsoft.freelacompanion.data.model.Project
  *  Date:       29/01/2021
  */
 
-class ProjectRecyclerViewAdapter(val project: List<Project>) : RecyclerView.Adapter<ProjectRecyclerViewAdapter.ViewHolder>() {
+class ProjectRecyclerViewAdapter(
+    val projects: List<Project>,
+    private val cellClickListener: CellClickListener
+) :
+    RecyclerView.Adapter<ProjectRecyclerViewAdapter.ViewHolder>() {
+
+    private lateinit var projectRecyclerBinding: ProjectItemBinding
 
     interface OnItemClickListener {
+
         fun onItemClicked()
     }
 
     interface OnItemLongClickListener {
+
         fun onItemLongClicked(position: Int): Boolean
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        projectRecyclerBinding =
+            ProjectItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val rootView = projectRecyclerBinding.root
+
+
+        return ViewHolder(rootView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
+        val project = projects[position]
+        val statusName = when (project.status) {
+            ProjectStatus.STARTED -> "Iniciado"
+            ProjectStatus.PAUSED -> "Pausado"
+            ProjectStatus.CANCELED -> "Cancelado"
+            ProjectStatus.FINISHED -> "Finalizado"
+
+        }
+
+        holder.clientName.text = project.client
+        holder.status.text = statusName
+        holder.deadLine.text = project.deadLine
+        holder.projectName.text = project.name
+
+        holder.root.setOnClickListener {
+            cellClickListener.onCellClickListener(project)
+        }
+
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = projects.count()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        val root: View = projectRecyclerBinding.itemLayout
+        val projectName: TextView = projectRecyclerBinding.txtProjectName
+        val clientName: TextView = projectRecyclerBinding.txtProjectName
+        val deadLine: TextView = projectRecyclerBinding.txtDeadLine
+        val status: TextView = projectRecyclerBinding.txtStatus
 
     }
 
