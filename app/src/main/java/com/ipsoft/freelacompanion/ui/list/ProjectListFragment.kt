@@ -27,7 +27,9 @@ import org.koin.core.parameter.parametersOf
 class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelectedListener,
     ActionMode.Callback {
 
-    private lateinit var projectListBinding: FragmentProjectListBinding
+    private var _binding: FragmentProjectListBinding? = null
+    private val binding get() = _binding!!
+
 
     private lateinit var spinner: Spinner
     private lateinit var recyclerView: RecyclerView
@@ -45,7 +47,7 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
     override fun showProjects(projects: List<Project>) {
         val adapter = ProjectRecyclerViewAdapter(projects, activity as CellClickListener)
         linearLayoutManager = LinearLayoutManager(activity)
-        recyclerView = projectListBinding.rvProjects
+        recyclerView = binding.rvProjects
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = adapter
     }
@@ -92,8 +94,8 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        projectListBinding = FragmentProjectListBinding.inflate(layoutInflater)
-        return projectListBinding.root
+        _binding = FragmentProjectListBinding.inflate(layoutInflater,container,false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -105,7 +107,7 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
 
     private fun setSpinner(v: View) {
 
-        spinner = projectListBinding.spinner
+        spinner = binding.spinner
         spinner.onItemSelectedListener = this
 
         ArrayAdapter.createFromResource(

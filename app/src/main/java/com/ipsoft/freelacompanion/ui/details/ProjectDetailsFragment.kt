@@ -16,15 +16,17 @@ import com.ipsoft.freelacompanion.databinding.ActivityProjectDetailBinding
  */
 class ProjectDetailsFragment : Fragment(), ProjectDetailsView {
 
-    private lateinit var projectDetailBinding: ActivityProjectDetailBinding
+    private var _binding: ActivityProjectDetailBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-		inflater: LayoutInflater,
-		container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View? {
-        projectDetailBinding = ActivityProjectDetailBinding.inflate(layoutInflater)
-        return projectDetailBinding.root
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = ActivityProjectDetailBinding.inflate(layoutInflater,container,false)
+        return binding.root
     }
 
     override fun showProjectDetails(project: Project) {
@@ -33,5 +35,10 @@ class ProjectDetailsFragment : Fragment(), ProjectDetailsView {
 
     override fun errorProjectNotFound() {
         TODO("Not yet implemented")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -9,14 +9,21 @@ import com.ipsoft.freelacompanion.databinding.FragmentCalculatorBinding
 
 class CalculatorFragment : Fragment(), CalculatorView {
 
-    private lateinit var calculatorBinding: FragmentCalculatorBinding
+    private var _binding: FragmentCalculatorBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-		inflater: LayoutInflater, container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View? {
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         // Inflate the layout for this fragment
-        calculatorBinding = FragmentCalculatorBinding.inflate(layoutInflater)
-		return calculatorBinding.root
+        _binding = FragmentCalculatorBinding.inflate(layoutInflater, container, false)
+        val view = binding.root
+        return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
