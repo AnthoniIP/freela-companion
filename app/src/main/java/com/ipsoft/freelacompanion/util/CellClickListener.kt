@@ -1,14 +1,14 @@
 package com.ipsoft.freelacompanion.util
 
-import com.ipsoft.freelacompanion.data.model.Project
+import com.ipsoft.freelacompanion.data.entity.ProjectEntity
 
 /**
  *
  *  Author:     Anthoni Ipiranga
- *  Project:    Freela Companion
+ *  ProjectEntity:    Freela Companion
  *  Date:       02/02/2021
  */
 
 interface CellClickListener {
-    fun onCellClickListener(project: Project)
+    fun onCellClickListener(project: ProjectEntity)
 }

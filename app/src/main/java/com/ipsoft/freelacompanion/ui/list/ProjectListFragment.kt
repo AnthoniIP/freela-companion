@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ipsoft.freelacompanion.R
-import com.ipsoft.freelacompanion.data.model.Project
+import com.ipsoft.freelacompanion.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.databinding.FragmentProjectListBinding
 import com.ipsoft.freelacompanion.ui.list.adapter.ProjectRecyclerViewAdapter
 import com.ipsoft.freelacompanion.util.CellClickListener
@@ -21,7 +21,7 @@ import org.koin.core.parameter.parametersOf
 /**
  *
  *  Author:     Anthoni Ipiranga
- *  Project:    Freela Companion
+ *  ProjectEntity:    Freela Companion
  *  Date:       23/01/2021
  */
 class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelectedListener,
@@ -44,7 +44,7 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
         presenter.init()
     }
 
-    override fun showProjects(projects: List<Project>) {
+    override fun showProjects(projects: List<ProjectEntity>) {
         val adapter = ProjectRecyclerViewAdapter(projects, activity as CellClickListener)
         linearLayoutManager = LinearLayoutManager(activity)
         recyclerView = binding.rvProjects
@@ -52,7 +52,7 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
         recyclerView.adapter = adapter
     }
 
-    override fun showProjectDetails(project: Project) {
+    override fun showProjectDetails(project: ProjectEntity) {
         if (activity is OnProjectClickListener) {
             val listener = activity as OnProjectClickListener
             listener.onProjectClick(project)
@@ -77,7 +77,7 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
         TODO("Not yet implemented")
     }
 
-    override fun showSelectedProjects(projects: List<Project>) {
+    override fun showSelectedProjects(projects: List<ProjectEntity>) {
         TODO("Not yet implemented")
     }
 
@@ -162,12 +162,12 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
 
     interface OnProjectDeletedListener {
 
-        fun onProjectDeleted(projects: List<Project>)
+        fun onProjectDeleted(projects: List<ProjectEntity>)
     }
 
     interface OnProjectClickListener {
 
-        fun onProjectClick(project: Project)
+        fun onProjectClick(project: ProjectEntity)
     }
 
 }

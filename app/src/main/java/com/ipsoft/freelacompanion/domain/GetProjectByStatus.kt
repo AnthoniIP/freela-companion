@@ -3,9 +3,9 @@ package com.ipsoft.freelacompanion.domain
 /**
  *
  *  Author:     Anthoni Ipiranga
- *  Project:    Freela Companion
+ *  ProjectEntity:    Freela Companion
  *  Date:       29/01/2021
  */
 
-class getProjectByStatus {
+class GetProjectByStatus {
 }

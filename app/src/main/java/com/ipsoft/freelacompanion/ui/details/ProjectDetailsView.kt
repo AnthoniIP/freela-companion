@@ -1,16 +1,16 @@
 package com.ipsoft.freelacompanion.ui.details
 
-import com.ipsoft.freelacompanion.data.model.Project
+import com.ipsoft.freelacompanion.data.entity.ProjectEntity
 
 /**
  *
  *  Author:     Anthoni Ipiranga
- *  Project:    Freela Companion
+ *  ProjectEntity:    Freela Companion
  *  Date:       28/01/2021
  */
 interface ProjectDetailsView {
 
-	fun showProjectDetails(project: Project)
+	fun showProjectDetails(project: ProjectEntity)
 	fun errorProjectNotFound()
 
 }

@@ -1,12 +1,12 @@
 package com.ipsoft.freelacompanion.ui.list
 
-import com.ipsoft.freelacompanion.data.model.Project
+import com.ipsoft.freelacompanion.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.repository.ProjectRepository
 
 /**
  *
  *  Author:     Anthoni Ipiranga
- *  Project:    Freela Companion
+ *  ProjectEntity:    Freela Companion
  *  Date:       28/01/2021
  */
 class ProjectListPresenter(
@@ -16,8 +16,8 @@ class ProjectListPresenter(
 
     private var lastTerm = ""
     private var inDeleteMode = false
-    private val selectedItems = mutableListOf<Project>()
-    private val deletedItems = mutableListOf<Project>()
+    private val selectedItems = mutableListOf<ProjectEntity>()
+    private val deletedItems = mutableListOf<ProjectEntity>()
 
     fun init() {
         if (inDeleteMode) {
@@ -37,7 +37,7 @@ class ProjectListPresenter(
         }
     }
 
-    fun selectProject(project: Project) {
+    fun selectProject(project: ProjectEntity) {
         if (inDeleteMode) {
             toggleProjectSelected(project)
             if (selectedItems.size == 0) {
@@ -51,7 +51,7 @@ class ProjectListPresenter(
         }
     }
 
-    fun toggleProjectSelected(project: Project) {
+    fun toggleProjectSelected(project: ProjectEntity) {
         val existing = selectedItems.find { it.id == project.id }
         if (existing == null) {
             selectedItems.add(project)
@@ -76,8 +76,8 @@ class ProjectListPresenter(
         searchProjects(lastTerm)
     }
 
-    fun deleteSelected(callback: (List<Project>) -> Unit) {
-        repository.remove(*selectedItems.toTypedArray())
+    fun deleteSelected(callback: (List<ProjectEntity>) -> Unit) {
+        repository.deleteProject(*selectedItems.toTypedArray())
         deletedItems.clear()
         deletedItems.addAll(selectedItems)
         refresh()
@@ -89,7 +89,7 @@ class ProjectListPresenter(
     fun undoDelete() {
         if (deletedItems.isNotEmpty()) {
             for (project in deletedItems) {
-                repository.save(project)
+                repository.insertProject(project)
             }
             searchProjects(lastTerm)
         }

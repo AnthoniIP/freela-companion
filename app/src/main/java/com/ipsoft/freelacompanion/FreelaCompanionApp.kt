@@ -8,7 +8,7 @@ import org.koin.standalone.StandAloneContext.stopKoin
 /**
  *
  *  Author:     Anthoni Ipiranga
- *  Project:    Freela Companion
+ *  ProjectEntity:    Freela Companion
  *  Date:       28/01/2021
  */
 class FreelaCompanionApp : Application() {

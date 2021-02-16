@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.ipsoft.freelacompanion.data.model.Project
+import com.ipsoft.freelacompanion.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.databinding.ActivityProjectDetailBinding
 
 /**
  *
  *  Author:     Anthoni Ipiranga
- *  Project:    Freela Companion
+ *  ProjectEntity:    Freela Companion
  *  Date:       28/01/2021
  */
 class ProjectDetailsFragment : Fragment(), ProjectDetailsView {
@@ -29,7 +29,7 @@ class ProjectDetailsFragment : Fragment(), ProjectDetailsView {
         return binding.root
     }
 
-    override fun showProjectDetails(project: Project) {
+    override fun showProjectDetails(project: ProjectEntity) {
         TODO("Not yet implemented")
     }
 

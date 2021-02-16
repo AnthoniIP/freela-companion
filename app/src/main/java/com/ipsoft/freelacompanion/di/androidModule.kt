@@ -17,7 +17,7 @@ import org.koin.dsl.module.module
 /**
  *
  *  Author:     Anthoni Ipiranga
- *  Project:    Freela Companion
+ *  ProjectEntity:    Freela Companion
  *  Date:       28/01/2021
  */
 val androidModule = module {

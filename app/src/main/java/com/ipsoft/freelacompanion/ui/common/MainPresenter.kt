@@ -5,7 +5,7 @@ import com.ipsoft.freelacompanion.repository.ProjectRepository
 /**
  *
  *  Author:     Anthoni Ipiranga
- *  Project:    Freela Companion
+ *  ProjectEntity:    Freela Companion
  *  Date:       29/01/2021
  */
 

@@ -8,7 +8,7 @@ import com.ipsoft.freelacompanion.ui.list.ProjectListFragment
 /**
  *
  *  Author:     Anthoni Ipiranga
- *  Project:    Freela Companion
+ *  ProjectEntity:    Freela Companion
  *  Date:       29/01/2021
  */
 class FragmentSliderAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {

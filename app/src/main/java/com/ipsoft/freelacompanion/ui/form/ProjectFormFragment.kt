@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.ipsoft.freelacompanion.data.model.Project
-import com.ipsoft.freelacompanion.databinding.ActivityProjectDetailBinding
+import com.ipsoft.freelacompanion.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.databinding.FragmentProjectFormBinding
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -14,7 +13,7 @@ import org.koin.core.parameter.parametersOf
 /**
  *
  *  Author:     Anthoni Ipiranga
- *  Project:    Freela Companion
+ *  ProjectEntity:    Freela Companion
  *  Date:       28/01/2021
  */
 class ProjectFormFragment : DialogFragment(), ProjectFormView {
@@ -28,13 +27,13 @@ class ProjectFormFragment : DialogFragment(), ProjectFormView {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentProjectFormBinding.inflate(layoutInflater, container, false)
         return binding.root
 
     }
 
-    override fun showProject(project: Project) {
+    override fun showProject(project: ProjectEntity) {
         TODO("Not yet implemented")
     }
 

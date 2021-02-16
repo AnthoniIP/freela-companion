@@ -5,20 +5,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ipsoft.freelacompanion.data.model.Project
-import com.ipsoft.freelacompanion.data.model.ProjectStatus
+import com.ipsoft.freelacompanion.data.entity.ProjectEntity
+import com.ipsoft.freelacompanion.data.entity.ProjectStatus
 import com.ipsoft.freelacompanion.databinding.ProjectItemBinding
 import com.ipsoft.freelacompanion.util.CellClickListener
 
 /**
  *
  *  Author:     Anthoni Ipiranga
- *  Project:    Freela Companion
+ *  ProjectEntity:    Freela Companion
  *  Date:       29/01/2021
  */
 
 class ProjectRecyclerViewAdapter(
-    val projects: List<Project>,
+    val projects: List<ProjectEntity>,
     private val cellClickListener: CellClickListener
 ) :
     RecyclerView.Adapter<ProjectRecyclerViewAdapter.ViewHolder>() {
@@ -57,7 +57,7 @@ class ProjectRecyclerViewAdapter(
 
         holder.clientName.text = project.client
         holder.status.text = statusName
-        holder.deadLine.text = project.deadLine
+        holder.deadLine.text = project.deadLine.toString()
         holder.projectName.text = project.name
 
         holder.root.setOnClickListener {
