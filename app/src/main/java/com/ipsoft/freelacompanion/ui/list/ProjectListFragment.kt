@@ -6,17 +6,20 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
-import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ipsoft.freelacompanion.R
+import com.ipsoft.freelacompanion.data.db.AppDatabase
+import com.ipsoft.freelacompanion.data.db.dao.ProjectDao
 import com.ipsoft.freelacompanion.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.databinding.FragmentProjectListBinding
-import com.ipsoft.freelacompanion.ui.list.adapter.ProjectRecyclerViewAdapter
+import com.ipsoft.freelacompanion.repository.ProjectRepository
+import com.ipsoft.freelacompanion.repository.room.DatabaseDatasource
 import com.ipsoft.freelacompanion.util.CellClickListener
-import org.koin.android.ext.android.inject
-import org.koin.core.parameter.parametersOf
 
 /**
  *
@@ -24,77 +27,41 @@ import org.koin.core.parameter.parametersOf
  *  ProjectEntity:    Freela Companion
  *  Date:       23/01/2021
  */
-class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelectedListener,
-    ActionMode.Callback {
+class ProjectListFragment : Fragment() {
 
     private var _binding: FragmentProjectListBinding? = null
     private val binding get() = _binding!!
-
 
     private lateinit var spinner: Spinner
     private lateinit var recyclerView: RecyclerView
     private lateinit var linearLayoutManager: LinearLayoutManager
 
-    private val presenter: ProjectListPresenter by inject { parametersOf(this) }
-    private var actionMode: ActionMode? = null
+    private val viewModel: ProjectListViewModel by viewModels {
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                val projectDao: ProjectDao =
+                    AppDatabase.getInstance(requireContext()).projectDao
+                val repository: ProjectRepository = DatabaseDatasource(projectDao)
+                return ProjectListViewModel(repository) as T
+            }
+        }
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         retainInstance = true
-        presenter.init()
     }
 
-    override fun showProjects(projects: List<ProjectEntity>) {
-        val adapter = ProjectRecyclerViewAdapter(projects, activity as CellClickListener)
-        linearLayoutManager = LinearLayoutManager(activity)
-        recyclerView = binding.rvProjects
-        recyclerView.layoutManager = linearLayoutManager
-        recyclerView.adapter = adapter
-    }
 
-    override fun showProjectDetails(project: ProjectEntity) {
-        if (activity is OnProjectClickListener) {
-            val listener = activity as OnProjectClickListener
-            listener.onProjectClick(project)
 
-        }
-    }
 
-    fun search(text: String) {
-        presenter.searchProjects(text)
-
-    }
-
-    fun clearSearch() {
-        presenter.searchProjects("")
-    }
-
-    override fun showDeleteMode() {
-        //TODO
-    }
-
-    override fun hideDeleteMode() {
-        TODO("Not yet implemented")
-    }
-
-    override fun showSelectedProjects(projects: List<ProjectEntity>) {
-        TODO("Not yet implemented")
-    }
-
-    override fun updateSelectionCountText(count: Int) {
-        TODO("Not yet implemented")
-    }
-
-    override fun showMessageProjectsDeleted(count: Int) {
-        TODO("Not yet implemented")
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentProjectListBinding.inflate(layoutInflater,container,false)
+        _binding = FragmentProjectListBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -102,7 +69,19 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
         super.onViewCreated(view, savedInstanceState)
 
         setSpinner(view)
+        observeViewModelEvents()
+        configureViewListeners()
 
+    }
+
+    private fun observeViewModelEvents() {
+        viewModel.allProjectsEvent.observe(viewLifecycleOwner) { allProjects ->
+            val projectsListAdapter = ProjectListAdapter(allProjects).apply {
+                onItemClick = { project ->
+                    val directions = ProjectListFragmentDirections
+                }
+            }
+        }
     }
 
     private fun setSpinner(v: View) {
@@ -142,22 +121,6 @@ class ProjectListFragment : Fragment(), ProjectListView, AdapterView.OnItemSelec
     override fun onNothingSelected(parent: AdapterView<*>?) {
         Toast.makeText(activity?.applicationContext, "Nenhum item selecionado", Toast.LENGTH_SHORT)
             .show()
-    }
-
-    override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
-        TODO("Not yet implemented")
-    }
-
-    override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
-        TODO("Not yet implemented")
-    }
-
-    override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
-        TODO("Not yet implemented")
-    }
-
-    override fun onDestroyActionMode(mode: ActionMode?) {
-        TODO("Not yet implemented")
     }
 
     interface OnProjectDeletedListener {
