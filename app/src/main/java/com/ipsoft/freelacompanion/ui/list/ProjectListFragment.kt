@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.navArgs
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +20,6 @@ import com.ipsoft.freelacompanion.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.databinding.FragmentProjectListBinding
 import com.ipsoft.freelacompanion.repository.ProjectRepository
 import com.ipsoft.freelacompanion.repository.room.DatabaseDatasource
-import com.ipsoft.freelacompanion.util.CellClickListener
 
 /**
  *
@@ -31,6 +31,8 @@ class ProjectListFragment : Fragment() {
 
     private var _binding: FragmentProjectListBinding? = null
     private val binding get() = _binding!!
+
+    private val args: ProjectListFragmentArgs by navArgs()
 
     private lateinit var spinner: Spinner
     private lateinit var recyclerView: RecyclerView
@@ -78,10 +80,14 @@ class ProjectListFragment : Fragment() {
         viewModel.allProjectsEvent.observe(viewLifecycleOwner) { allProjects ->
             val projectsListAdapter = ProjectListAdapter(allProjects).apply {
                 onItemClick = { project ->
-                    val directions = ProjectListFragmentDirections
+                    //TODO
                 }
             }
         }
+    }
+
+    private fun configureViewListeners() {
+        TODO("Not yet implemented")
     }
 
     private fun setSpinner(v: View) {

@@ -4,10 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.ipsoft.freelacompanion.data.db.dao.ProjectDao
 import com.ipsoft.freelacompanion.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.repository.DATABASE_NAME
 import com.ipsoft.freelacompanion.repository.DATABASE_VERSION
+import com.ipsoft.freelacompanion.repository.room.Converters
 
 /**
  *
@@ -16,6 +18,7 @@ import com.ipsoft.freelacompanion.repository.DATABASE_VERSION
  *  Date:       16/02/2021
  */
 @Database(entities = [ProjectEntity::class], version = DATABASE_VERSION)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract val projectDao: ProjectDao

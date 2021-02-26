@@ -2,6 +2,7 @@ package com.ipsoft.freelacompanion.repository.room
 
 import androidx.room.TypeConverter
 import com.ipsoft.freelacompanion.data.entity.ProjectStatus
+import java.util.*
 
 /**
  *
@@ -32,5 +33,14 @@ class Converters {
             4 -> ProjectStatus.CANCELED
             else -> ProjectStatus.ERROR
         }
+    }
+
+    @TypeConverter
+    fun dateToString(date: Date): String {
+        return date.toString()
+    }
+    @TypeConverter
+    fun stringToDate(string: String) : Date {
+        return Date(string)
     }
 }

@@ -2,8 +2,9 @@ package com.ipsoft.freelacompanion
 
 import android.app.Application
 import com.ipsoft.freelacompanion.di.androidModule
-import org.koin.android.ext.android.startKoin
-import org.koin.standalone.StandAloneContext.stopKoin
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
 
 /**
  *
@@ -13,13 +14,16 @@ import org.koin.standalone.StandAloneContext.stopKoin
  */
 class FreelaCompanionApp : Application() {
 
-	override fun onCreate() {
-		super.onCreate()
-		startKoin(this, listOf(androidModule))
-	}
+    override fun onCreate() {
+        super.onCreate()
+        startKoin {
+            androidContext(this@FreelaCompanionApp)
+            modules(androidModule)
+        }
+    }
 
-	override fun onTerminate() {
-		super.onTerminate()
-		stopKoin()
-	}
+    override fun onTerminate() {
+        super.onTerminate()
+        stopKoin()
+    }
 }

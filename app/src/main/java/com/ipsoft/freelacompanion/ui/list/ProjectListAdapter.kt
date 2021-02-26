@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ipsoft.freelacompanion.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.data.entity.ProjectStatus
 import com.ipsoft.freelacompanion.databinding.ProjectItemBinding
-import com.ipsoft.freelacompanion.util.CellClickListener
 
 /**
  *
@@ -18,8 +17,7 @@ import com.ipsoft.freelacompanion.util.CellClickListener
  */
 
 class ProjectListAdapter(
-    val projects: List<ProjectEntity>,
-    private val cellClickListener: CellClickListener
+    val projects: List<ProjectEntity>
 ) :
     RecyclerView.Adapter<ProjectListAdapter.ViewHolder>() {
 

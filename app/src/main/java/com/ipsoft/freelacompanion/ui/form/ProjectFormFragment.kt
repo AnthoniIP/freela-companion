@@ -21,8 +21,6 @@ class ProjectFormFragment : DialogFragment(), ProjectFormView {
     private var _binding: FragmentProjectFormBinding? = null
     private val binding get() = _binding!!
 
-    private val presenter: ProjectFormPresenter by inject { parametersOf(this) }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

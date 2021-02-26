@@ -66,8 +66,10 @@ dependencies {
     implementation "androidx.cardview:cardview:1.0.0"
 
     //Koin
-    implementation 'org.koin:koin-android:1.0.0'
-    implementation 'org.koin:koin-androidx-scope:1.0.0'
+    def koin_version = '2.2.2'
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-android:$koin_version"
 
     //Unit Tests
     testImplementation 'junit:junit:4.13.1'
