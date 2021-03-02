@@ -14,7 +14,7 @@ import com.ipsoft.freelacompanion.databinding.ActivityProjectDetailBinding
  *  ProjectEntity:    Freela Companion
  *  Date:       28/01/2021
  */
-class ProjectDetailsFragment : Fragment(), ProjectDetailsView {
+class ProjectDetailsFragment : Fragment() {
 
     private var _binding: ActivityProjectDetailBinding? = null
 
@@ -29,11 +29,11 @@ class ProjectDetailsFragment : Fragment(), ProjectDetailsView {
         return binding.root
     }
 
-    override fun showProjectDetails(project: ProjectEntity) {
+    fun showProjectDetails(project: ProjectEntity) {
         TODO("Not yet implemented")
     }
 
-    override fun errorProjectNotFound() {
+     fun errorProjectNotFound() {
         TODO("Not yet implemented")
     }
 

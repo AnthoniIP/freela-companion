@@ -23,6 +23,10 @@ class ProjectListViewModel(
     val allProjectsEvent: LiveData<List<ProjectEntity>>
         get() = _allProjectsEvent
 
+    init {
+        getAllProjects()
+    }
+
     fun getAllProjects() = viewModelScope.launch {
         _allProjectsEvent.postValue(repository.getAllProjects())
     }

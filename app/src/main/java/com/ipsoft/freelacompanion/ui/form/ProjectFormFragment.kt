@@ -16,7 +16,7 @@ import org.koin.core.parameter.parametersOf
  *  ProjectEntity:    Freela Companion
  *  Date:       28/01/2021
  */
-class ProjectFormFragment : DialogFragment(), ProjectFormView {
+class ProjectFormFragment : DialogFragment() {
 
     private var _binding: FragmentProjectFormBinding? = null
     private val binding get() = _binding!!
@@ -31,15 +31,15 @@ class ProjectFormFragment : DialogFragment(), ProjectFormView {
 
     }
 
-    override fun showProject(project: ProjectEntity) {
+    fun showProject(project: ProjectEntity) {
         TODO("Not yet implemented")
     }
 
-    override fun errorInvalidProject() {
+    fun errorInvalidProject() {
         TODO("Not yet implemented")
     }
 
-    override fun errorSaveProject() {
+    fun errorSaveProject() {
         TODO("Not yet implemented")
     }
 

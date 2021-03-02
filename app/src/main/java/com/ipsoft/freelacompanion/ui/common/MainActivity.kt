@@ -13,12 +13,9 @@ import com.ipsoft.freelacompanion.databinding.ActivityMainBinding
 import com.ipsoft.freelacompanion.ui.common.adapter.FragmentSliderAdapter
 import com.ipsoft.freelacompanion.ui.details.ProjectDetailActivity
 import com.ipsoft.freelacompanion.ui.list.ProjectListFragment
-import com.ipsoft.freelacompanion.util.CellClickListener
 
 class MainActivity : AppCompatActivity(),
-    MainView,
-    ProjectListFragment.OnProjectDeletedListener,
-    CellClickListener {
+    ProjectListFragment.OnProjectDeletedListener {
 
     private lateinit var mainBinding: ActivityMainBinding
 
@@ -54,14 +51,14 @@ class MainActivity : AppCompatActivity(),
         }
     }
 
-    override fun setFragments() {
+    private fun setFragments() {
         viewPager = mainBinding.pager
 
         val pagerAdapter = FragmentSliderAdapter(this)
         viewPager.adapter = pagerAdapter
     }
 
-    override fun setTabLayout() {
+    private fun setTabLayout() {
 
         val tabTitles = (resources.getStringArray(R.array.fragments))
         tabLayout = mainBinding.tabLayout
@@ -74,10 +71,5 @@ class MainActivity : AppCompatActivity(),
         TODO("Not yet implemented")
     }
 
-    override fun onCellClickListener(project: ProjectEntity) {
-        val intent = Intent(this, ProjectDetailActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP
-        intent.putExtra("id", project.id)
-        startActivity(intent)
-    }
+
 }

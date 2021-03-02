@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.ipsoft.freelacompanion.databinding.FragmentCalculatorBinding
 
-class CalculatorFragment : Fragment(), CalculatorView {
+class CalculatorFragment : Fragment() {
 
     private var _binding: FragmentCalculatorBinding? = null
     private val binding get() = _binding!!

@@ -80,7 +80,7 @@ class ProjectListFragment : Fragment() {
         viewModel.allProjectsEvent.observe(viewLifecycleOwner) { allProjects ->
             val projectsListAdapter = ProjectListAdapter(allProjects).apply {
                 onItemClick = { project ->
-                    //TODO
+                    val directions = ProjectListFragmentDirections
                 }
             }
         }
@@ -132,11 +132,6 @@ class ProjectListFragment : Fragment() {
     interface OnProjectDeletedListener {
 
         fun onProjectDeleted(projects: List<ProjectEntity>)
-    }
-
-    interface OnProjectClickListener {
-
-        fun onProjectClick(project: ProjectEntity)
     }
 
 }

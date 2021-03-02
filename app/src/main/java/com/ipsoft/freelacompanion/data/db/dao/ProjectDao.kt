@@ -30,6 +30,9 @@ interface ProjectDao {
     @Query("SELECT * FROM $TABLE_NAME")
     suspend fun getAll(): List<ProjectEntity>
 
+    @Query("SELECT * FROM $TABLE_NAME WHERE id = :id")
+    suspend fun getById(id: Long): ProjectEntity
+
     @Query("SELECT * FROM $TABLE_NAME WHERE $COLUMN_STATUS = :status")
     suspend fun getByStatus(status: ProjectStatus): List<ProjectEntity>
 }
