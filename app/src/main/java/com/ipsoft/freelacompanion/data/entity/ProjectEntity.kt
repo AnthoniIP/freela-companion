@@ -31,3 +31,4 @@ data class ProjectEntity(
 enum class ProjectStatus {
     STARTED, PAUSED, FINISHED, CANCELED,ERROR
 }
+

@@ -43,7 +43,6 @@ class ProjectListAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private val root: View = projectRecyclerBinding.itemLayout
         private val projectName: TextView = projectRecyclerBinding.txtProjectName
         private val clientName: TextView = projectRecyclerBinding.txtProjectName
         private val deadLine: TextView = projectRecyclerBinding.txtDeadLine
