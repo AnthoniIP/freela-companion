@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.domain
+package com.ipsoft.freelacompanion.domain.interactor
 
 /**
  *
@@ -7,5 +7,5 @@ package com.ipsoft.freelacompanion.domain
  *  Date:       29/01/2021
  */
 
-class GetProjectByStatusUseCase {
+class EditExistingProjectUseCase {
 }
