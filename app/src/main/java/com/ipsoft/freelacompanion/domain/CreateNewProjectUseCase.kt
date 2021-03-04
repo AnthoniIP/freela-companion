@@ -7,5 +7,5 @@ package com.ipsoft.freelacompanion.domain
  *  Date:       29/01/2021
  */
 
-class UpdateProject {
+class CreateNewProjectUseCase {
 }
