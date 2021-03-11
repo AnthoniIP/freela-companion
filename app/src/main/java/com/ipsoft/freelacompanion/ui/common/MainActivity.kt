@@ -8,7 +8,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.ipsoft.freelacompanion.R
-import com.ipsoft.freelacompanion.data.entity.ProjectEntity
+import com.ipsoft.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.databinding.ActivityMainBinding
 import com.ipsoft.freelacompanion.ui.common.adapter.FragmentSliderAdapter
 import com.ipsoft.freelacompanion.ui.details.ProjectDetailActivity

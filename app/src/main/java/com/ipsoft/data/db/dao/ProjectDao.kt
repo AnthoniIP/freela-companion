@@ -1,11 +1,11 @@
-package com.ipsoft.freelacompanion.data.db.dao
+package com.ipsoft.data.db.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.ipsoft.freelacompanion.data.entity.ProjectEntity
-import com.ipsoft.freelacompanion.data.entity.ProjectStatus
+import com.ipsoft.data.entity.ProjectEntity
+import com.ipsoft.data.entity.ProjectStatus
 import com.ipsoft.freelacompanion.repository.COLUMN_STATUS
 import com.ipsoft.freelacompanion.repository.TABLE_NAME
 
@@ -16,7 +16,7 @@ import com.ipsoft.freelacompanion.repository.TABLE_NAME
  *  Date:       16/02/2021
  */
 @Dao
-interface ProjectDao {
+interface   ProjectDao {
 
     @Insert
     suspend fun insert(project: ProjectEntity): Long

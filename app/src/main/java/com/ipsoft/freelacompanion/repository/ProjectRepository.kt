@@ -1,7 +1,7 @@
 package com.ipsoft.freelacompanion.repository
 
-import com.ipsoft.freelacompanion.data.entity.ProjectEntity
-import com.ipsoft.freelacompanion.data.entity.ProjectStatus
+import com.ipsoft.data.entity.ProjectEntity
+import com.ipsoft.data.entity.ProjectStatus
 
 /**
  *

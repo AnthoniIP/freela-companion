@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ipsoft.freelacompanion.data.entity.ProjectEntity
+import com.ipsoft.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.repository.ProjectRepository
 import kotlinx.coroutines.launch
 

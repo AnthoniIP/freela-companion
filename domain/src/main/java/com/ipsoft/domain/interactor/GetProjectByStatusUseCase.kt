@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.domain.interactor
+package com.ipsoft.domain.interactor
 
 /**
  *

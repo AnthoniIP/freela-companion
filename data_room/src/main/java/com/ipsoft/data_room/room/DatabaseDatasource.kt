@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.repository.room
+package com.ipsoft.data_room.room
 
 import com.ipsoft.freelacompanion.data.db.dao.ProjectDao
 import com.ipsoft.freelacompanion.data.entity.ProjectEntity

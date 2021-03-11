@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.repository.room
+package com.ipsoft.data_room.room
 
 import androidx.room.TypeConverter
 import com.ipsoft.freelacompanion.data.entity.ProjectStatus

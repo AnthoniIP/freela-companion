@@ -14,12 +14,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ipsoft.freelacompanion.R
-import com.ipsoft.freelacompanion.data.db.AppDatabase
-import com.ipsoft.freelacompanion.data.db.dao.ProjectDao
-import com.ipsoft.freelacompanion.data.entity.ProjectEntity
+import com.ipsoft.data.db.AppDatabase
+import com.ipsoft.data.db.dao.ProjectDao
+import com.ipsoft.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.databinding.FragmentProjectListBinding
 import com.ipsoft.freelacompanion.repository.ProjectRepository
-import com.ipsoft.freelacompanion.repository.room.DatabaseDatasource
+import com.ipsoft.data_room.room.DatabaseDatasource
 
 /**
  *

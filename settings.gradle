@@ -1,2 +1,7 @@
+include ':presentation'
+include ':data_room'
+include ':data_fb'
+include ':data'
+include ':domain'
 include ':app'
 rootProject.name = "Freela Companion"

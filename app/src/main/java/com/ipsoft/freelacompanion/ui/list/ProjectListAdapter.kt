@@ -5,8 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ipsoft.freelacompanion.data.entity.ProjectEntity
-import com.ipsoft.freelacompanion.data.entity.ProjectStatus
+import com.ipsoft.data.entity.ProjectEntity
+import com.ipsoft.data.entity.ProjectStatus
 import com.ipsoft.freelacompanion.databinding.ProjectItemBinding
 
 /**

@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.data.entity
+package com.ipsoft.data.entity
 
 import android.os.Parcelable
 import androidx.room.Entity

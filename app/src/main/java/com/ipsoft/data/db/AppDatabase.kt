@@ -1,15 +1,15 @@
-package com.ipsoft.freelacompanion.data.db
+package com.ipsoft.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.ipsoft.freelacompanion.data.db.dao.ProjectDao
-import com.ipsoft.freelacompanion.data.entity.ProjectEntity
+import com.ipsoft.data.db.dao.ProjectDao
+import com.ipsoft.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.repository.DATABASE_NAME
 import com.ipsoft.freelacompanion.repository.DATABASE_VERSION
-import com.ipsoft.freelacompanion.repository.room.Converters
+import com.ipsoft.data_room.room.Converters
 
 /**
  *

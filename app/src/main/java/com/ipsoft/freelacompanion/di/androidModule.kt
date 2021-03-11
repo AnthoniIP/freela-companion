@@ -8,6 +8,6 @@ import org.koin.dsl.module
  *  ProjectEntity:    Freela Companion
  *  Date:       28/01/2021
  */
-val androidModule = module {
+val appModule = module {
     //TODO
 }
