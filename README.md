@@ -1,13 +1,8 @@
 # Freela Companion
-My first Attempt using clean architecture concepts in a android App. Maybe this project take a large time, but i hope to learn a lot.
+My first Attempt using clean architecture concepts in an android App. Maybe this project take a large time, but i hope to learn a lot.
 
+The following chart demonstrate how the project was planned
 
-The following model will be the basis of this project.
+![alt text](https://github.com/AnthoniIP/freela-companion/blob/master/img/freelacompanionarchtecture.pngg?raw=true)
 
-
-![alt text](https://github.com/AnthoniIP/freela-companion/blob/master/img/Clean-Architecture-graphAndroid.png?raw=true)
-
-God help me!
-
-
-This readme isn't finished yet.
+I'm using room for local data storage and firebase to remote data storage.
