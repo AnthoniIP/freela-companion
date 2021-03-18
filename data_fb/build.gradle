@@ -25,8 +25,11 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.google.firebase:firebase-core:$firebase_core_version"
-    implementation "com.google.firebase:firebase-firestore:$firebase_firestore_version"
-    implementation "com.google.firebase:firebase-storage:$firebase_storage_version"
-    implementation "com.google.firebase:firebase-auth:$firebase_auth_version"
+    //Firebase
+    // Import the BoM for the Firebase platform
+    implementation platform("com.google.firebase:firebase-bom:$firebase_version")
+
+    // Declare the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth-ktx'
 }

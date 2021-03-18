@@ -3,7 +3,6 @@ plugins {
     id 'kotlin-android'
     id 'com.google.gms.google-services'
     id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -12,8 +11,8 @@ android {
 
     defaultConfig {
         applicationId "com.ipsoft.freelacompanion"
-        minSdkVersion 16
-        targetSdkVersion 30
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
         versionCode 1
         versionName "1.0"
 
@@ -40,9 +39,13 @@ android {
 }
 
 dependencies {
-    
-    implementation project(path: ':presentation')
-    implementation project(path: ':domain')
+
+    implementation project(':presentation')
+    implementation project(':domain')
+    implementation project(':repository')
+    implementation project(':data')
+    implementation project(':data_fb')
+    implementation project(':data_room')
 
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
@@ -50,11 +53,9 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-    implementation "androidx.navigation:navigation-ui:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation "com.squareup.picasso:picasso:$picasso_version"
     implementation "androidx.recyclerview:recyclerview:$recylerview_version"
-    implementation "com.google.firebase:firebase-core:$firebase_core_version"
-    implementation "com.google.firebase:firebase-auth:$firebase_auth_version"
     implementation "com.google.android.gms:play-services-auth:$playservices_version"
     implementation "com.google.android.material:material:$material_design_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
@@ -66,6 +67,14 @@ dependencies {
 
     testImplementation "junit:junit:$junit_version"
 
+    //Firebase
+    // Import the BoM for the Firebase platform
+    implementation platform("com.google.firebase:firebase-bom:$firebase_version")
+
+    // Declare the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
     androidTestImplementation "androidx.test.ext:junit:$testrunner_version"
     androidTestImplementation "androidx.arch.core:core-testing:$android_arch_test"
     androidTestImplementation "androidx.test:rules:$testrules_version"
@@ -73,4 +82,4 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
     androidTestImplementation "org.hamcrest:hamcrest-integration:$hamcrest_version"
 }
-apply plugin: "androidx.navigation.safeargs.kotlin"
+

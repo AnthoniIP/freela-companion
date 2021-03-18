@@ -1,6 +1,7 @@
 plugins {
-    id 'java-library'
-    id 'kotlin'
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 java {
@@ -9,9 +10,18 @@ java {
 }
 
 dependencies {
-    implementation project(path: ':data_fb')
-    implementation project(path: ':data_room')
+    implementation project(':data_fb')
+    implementation project(':data_room')
 
     testImplementation "io.mockk:mockk:$mockk_version"
     testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_test_version"
+
+    def room_version = "2.2.6"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+
 }
