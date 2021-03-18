@@ -40,12 +40,10 @@ android {
 }
 
 dependencies {
+    
+    implementation project(path: ':presentation')
+    implementation project(path: ':domain')
 
-    implementation project(":presentation")
-    implementation project(":domain")
-    implementation project(":data_room")
-    implementation project(":data")
-    implementation project(":data_fb")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
@@ -57,11 +55,9 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$recylerview_version"
     implementation "com.google.firebase:firebase-core:$firebase_core_version"
     implementation "com.google.firebase:firebase-auth:$firebase_auth_version"
-    implementation "com.google.firebase:firebase-crashlytics:$firebase_crashlytics_version"
     implementation "com.google.android.gms:play-services-auth:$playservices_version"
     implementation "com.google.android.material:material:$material_design_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    implementation "com.crashlytics.sdk.android:crashlytics:$crashlytics_version"
 
     implementation "org.koin:koin-core:$koin_version"
     implementation "org.koin:koin-android:$koin_version"

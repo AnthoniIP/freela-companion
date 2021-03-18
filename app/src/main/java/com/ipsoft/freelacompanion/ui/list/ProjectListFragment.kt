@@ -18,7 +18,7 @@ import com.ipsoft.data.db.AppDatabase
 import com.ipsoft.data.db.dao.ProjectDao
 import com.ipsoft.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.databinding.FragmentProjectListBinding
-import com.ipsoft.freelacompanion.repository.ProjectRepository
+import com.ipsoft.repository.ProjectRepository
 import com.ipsoft.data_room.room.DatabaseDatasource
 
 /**
@@ -43,7 +43,7 @@ class ProjectListFragment : Fragment() {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                 val projectDao: ProjectDao =
                     AppDatabase.getInstance(requireContext()).projectDao
-                val repository: ProjectRepository = DatabaseDatasource(projectDao)
+                val repository: com.ipsoft.repository.ProjectRepository = DatabaseDatasource(projectDao)
                 return ProjectListViewModel(repository) as T
             }
         }

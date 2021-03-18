@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ipsoft.data.entity.ProjectEntity
-import com.ipsoft.freelacompanion.repository.ProjectRepository
+import com.ipsoft.repository.ProjectRepository
 import kotlinx.coroutines.launch
 
 /**
@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
  */
 
 class ProjectListViewModel(
-    private val repository: ProjectRepository
+    private val repository: com.ipsoft.repository.ProjectRepository
 ) : ViewModel() {
 
     private val _allProjectsEvent = MutableLiveData<List<ProjectEntity>>()
@@ -27,7 +27,7 @@ class ProjectListViewModel(
         getAllProjects()
     }
 
-    fun getAllProjects() = viewModelScope.launch {
+    private fun getAllProjects() = viewModelScope.launch {
         _allProjectsEvent.postValue(repository.getAllProjects())
     }
 }

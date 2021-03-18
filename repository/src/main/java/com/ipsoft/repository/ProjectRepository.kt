@@ -1,8 +1,7 @@
-package com.ipsoft.freelacompanion.repository
+package com.ipsoft.repository
 
-import com.ipsoft.data.entity.ProjectEntity
-import com.ipsoft.data.entity.ProjectStatus
 
+import com.ipsoft.data.*
 /**
  *
  *  Author:     Anthoni Ipiranga

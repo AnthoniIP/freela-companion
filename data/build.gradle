@@ -9,7 +9,8 @@ java {
 }
 
 dependencies {
-    implementation project(":domain")
+    implementation project(path: ':data_fb')
+    implementation project(path: ':data_room')
 
     testImplementation "io.mockk:mockk:$mockk_version"
     testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_test_version"
