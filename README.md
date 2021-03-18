@@ -3,7 +3,7 @@ My first Attempt using clean architecture and MVVM concepts in an android App.
 
 The app is architected in modules: app, presentation, domain and data.
 
-##The technologies
+## The technologies
 
  [Android Architecture Components(LiveData,ViewModel)](https://developer.android.com/topic/libraries/architecture) <br/>
  [Coroutines](https://developer.android.com/kotlin/coroutines) <br/>
@@ -13,7 +13,7 @@ The app is architected in modules: app, presentation, domain and data.
  [Picasso](https://square.github.io/picasso/) <br/>
  [Koin](https://insert-koin.io/) <br/>
 
-##App modules and their dependencies
+## App modules and their dependencies
 
 ![alt text](https://github.com/AnthoniIP/freela-companion/blob/master/img/freelacompanionarchtecture.png?raw=true)
 
