@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.extension
+package com.ipsoft.freelacompanion.commons.extension
 
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections

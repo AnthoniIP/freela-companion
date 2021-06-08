@@ -14,12 +14,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ipsoft.freelacompanion.R
-import com.ipsoft.data.db.AppDatabase
-import com.ipsoft.data.db.dao.ProjectDao
-import com.ipsoft.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.databinding.FragmentProjectListBinding
-import com.ipsoft.repository.ProjectRepository
-import com.ipsoft.data_room.room.DatabaseDatasource
+
 
 /**
  *
@@ -32,22 +28,12 @@ class ProjectListFragment : Fragment() {
     private var _binding: FragmentProjectListBinding? = null
     private val binding get() = _binding!!
 
-    private val args: ProjectListFragmentArgs by navArgs()
 
     private lateinit var spinner: Spinner
     private lateinit var recyclerView: RecyclerView
     private lateinit var linearLayoutManager: LinearLayoutManager
 
-    private val viewModel: ProjectListViewModel by viewModels {
-        object : ViewModelProvider.Factory {
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                val projectDao: ProjectDao =
-                    AppDatabase.getInstance(requireContext()).projectDao
-                val repository: com.ipsoft.repository.ProjectRepository = DatabaseDatasource(projectDao)
-                return ProjectListViewModel(repository) as T
-            }
-        }
-    }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -71,20 +57,12 @@ class ProjectListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setSpinner(view)
-        observeViewModelEvents()
+
         configureViewListeners()
 
     }
 
-    private fun observeViewModelEvents() {
-        viewModel.allProjectsEvent.observe(viewLifecycleOwner) { allProjects ->
-            val projectsListAdapter = ProjectListAdapter(allProjects).apply {
-                onItemClick = { project ->
-                    val directions = ProjectListFragmentDirections
-                }
-            }
-        }
-    }
+
 
     private fun configureViewListeners() {
         TODO("Not yet implemented")
@@ -93,7 +71,6 @@ class ProjectListFragment : Fragment() {
     private fun setSpinner(v: View) {
 
         spinner = binding.spinner
-        spinner.onItemSelectedListener = this
 
         ArrayAdapter.createFromResource(
             v.context,
@@ -106,7 +83,7 @@ class ProjectListFragment : Fragment() {
 
     }
 
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+    fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         when (position) {
             0 -> {
             } // Lógica para exibir todos os projetos
@@ -124,14 +101,10 @@ class ProjectListFragment : Fragment() {
         }
     }
 
-    override fun onNothingSelected(parent: AdapterView<*>?) {
+    fun onNothingSelected(parent: AdapterView<*>?) {
         Toast.makeText(activity?.applicationContext, "Nenhum item selecionado", Toast.LENGTH_SHORT)
             .show()
     }
 
-    interface OnProjectDeletedListener {
-
-        fun onProjectDeleted(projects: List<ProjectEntity>)
-    }
 
 }

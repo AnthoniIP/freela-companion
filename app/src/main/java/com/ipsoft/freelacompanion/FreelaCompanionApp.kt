@@ -1,7 +1,7 @@
 package com.ipsoft.freelacompanion
 
 import android.app.Application
-import com.ipsoft.freelacompanion.di.appModule
+import com.ipsoft.freelacompanion.commons.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin

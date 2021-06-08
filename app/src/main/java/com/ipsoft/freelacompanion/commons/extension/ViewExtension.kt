@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.extension
+package com.ipsoft.freelacompanion.commons.extension
 
 import android.content.Context
 import android.view.WindowManager

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.ipsoft.data.entity.ProjectEntity
 import com.ipsoft.freelacompanion.databinding.FragmentProjectFormBinding
 
 /**
@@ -29,7 +28,7 @@ class ProjectFormFragment : DialogFragment() {
 
     }
 
-    fun showProject(project: ProjectEntity) {
+    fun showProject() {
         TODO("Not yet implemented")
     }
 

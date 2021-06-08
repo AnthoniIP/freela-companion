@@ -5,8 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ipsoft.data.entity.ProjectEntity
-import com.ipsoft.data.entity.ProjectStatus
+
 import com.ipsoft.freelacompanion.databinding.ProjectItemBinding
 
 /**
@@ -17,12 +16,11 @@ import com.ipsoft.freelacompanion.databinding.ProjectItemBinding
  */
 
 class ProjectListAdapter(
-    val projects: List<ProjectEntity>
+    val projects: List<String>
 ) :
     RecyclerView.Adapter<ProjectListAdapter.ViewHolder>() {
 
     private lateinit var projectRecyclerBinding: ProjectItemBinding
-    var onItemClick: ((entity: ProjectEntity) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         projectRecyclerBinding =
@@ -35,7 +33,7 @@ class ProjectListAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.bindView(project = projects[position])
+
 
     }
 
@@ -48,25 +46,7 @@ class ProjectListAdapter(
         private val deadLine: TextView = projectRecyclerBinding.txtDeadLine
         private val status: TextView = projectRecyclerBinding.txtStatus
 
-        fun bindView(project: ProjectEntity) {
-            val statusName = when (project.status) {
-                ProjectStatus.STARTED -> "Iniciado"
-                ProjectStatus.PAUSED -> "Pausado"
-                ProjectStatus.CANCELED -> "Cancelado"
-                ProjectStatus.FINISHED -> "Finalizado"
 
-                else -> "Error"
-            }
-            clientName.text = project.client
-            status.text = statusName
-            deadLine.text = project.deadLine.toString()
-            projectName.text = project.name
-
-            itemView.setOnClickListener {
-                onItemClick?.invoke(project)
-            }
-
-        }
 
     }
 

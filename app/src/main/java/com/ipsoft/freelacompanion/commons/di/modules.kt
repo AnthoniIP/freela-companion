@@ -1,4 +1,4 @@
-package com.ipsoft.freelacompanion.di
+package com.ipsoft.freelacompanion.commons.di
 
 import com.ipsoft.freelacompanion.ui.list.ProjectListViewModel
 import org.koin.android.viewmodel.dsl.viewModel
@@ -15,6 +15,6 @@ val appModule = module  {
 
     }
     viewModel {
-        ProjectListViewModel(repository = get())
+        ProjectListViewModel()//repository = get())
     }
 }

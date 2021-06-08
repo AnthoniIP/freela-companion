@@ -42,7 +42,6 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
-    implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
@@ -52,10 +51,10 @@ dependencies {
     implementation "com.google.android.material:material:$material_design_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
-    implementation "org.koin:koin-core:$koin_version"
-    implementation "org.koin:koin-android:$koin_version"
-    implementation "org.koin:koin-android-viewmodel:$koin_version"
-    implementation "org.koin:koin-android-scope:$koin_version"
+    implementation "io.insert-koin:koin-android-viewmodel:$koin_versionv2"
+    implementation "io.insert-koin:koin-android:$koin_versionv2"
+    implementation "io.insert-koin:koin-androidx-workmanager:$koin_versionv2"
+    implementation "io.insert-koin:koin-android-scope:$koin_versionv2"
 
     testImplementation "junit:junit:$junit_version"
 
@@ -68,10 +67,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
 
     androidTestImplementation "androidx.test.ext:junit:$testrunner_version"
-    androidTestImplementation "androidx.arch.core:core-testing:$android_arch_test"
     androidTestImplementation "androidx.test:rules:$testrules_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
-    androidTestImplementation "org.hamcrest:hamcrest-integration:$hamcrest_version"
+
 }
 
