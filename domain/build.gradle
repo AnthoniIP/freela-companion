@@ -1,8 +1,0 @@
-apply plugin: 'java-library'
-apply plugin: 'kotlin'
-apply from: "$rootProject.projectDir/commons.gradle"
-
-dependencies {
-    implementation project(':repository')
-    testImplementation "io.mockk:mockk:$mockk_version"
-}
